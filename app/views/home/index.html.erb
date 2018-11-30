@@ -1,1 +1,11 @@
 <h1 id="home_timer"></h1>
+<table>
+  <tr>
+    <th>Timer Value</th>
+  </tr>
+  <% @plays.each do |play| %>
+    <tr>
+      <td><%= play.timer_value %></td>
+    </tr>
+  <% end %>
+</table>
