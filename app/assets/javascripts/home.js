@@ -15,6 +15,22 @@ function initializeTimer() {
   };
 
   decrementTimer();
+
+  function saveTimerValue() {
+    $.ajax({
+      url: "/plays",
+      method: 'POST',
+      data: {
+        timer_value: timerValue
+      },
+      success: function(result) {
+        $("#home_timer_table").append("<tr><td>" + result.data.play.timer_value + "</td></tr>");
+      }
+    });
+  }
+
+  var button = $("#home_timer_button");
+  button.click(saveTimerValue);
 }
 
 $(document).ready(initializeTimer);
