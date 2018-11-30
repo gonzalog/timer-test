@@ -21,10 +21,12 @@ function initializeTimer() {
       url: "/plays",
       method: 'POST',
       data: {
-        timer_value: timerValue
+        play: {
+          timer_value: timerValue
+        }
       },
       success: function(result) {
-        $("#home_timer_table").append("<tr><td>" + result.data.play.timer_value + "</td></tr>");
+        $("#home_timer_table").append("<tr><td>" + result.play.timer_value + "</td></tr>");
       }
     });
   }
